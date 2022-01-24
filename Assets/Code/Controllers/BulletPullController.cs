@@ -12,13 +12,7 @@ namespace SpaceEscape
 
         private List<BulletGameData> _bulletList;
 
-        public List<BulletGameData> GetBulletList
-        {
-            get
-            {
-                return _bulletList;
-            }
-        }
+        public List<BulletGameData> GetBulletList => _bulletList;
 
         public BulletPullController(IBulletFactory bulletFactory, Transform player, Vector2 firePointOffset)
         {
@@ -31,35 +25,33 @@ namespace SpaceEscape
         {
             _bulletList = new List<BulletGameData>(SystemSettingsManager.BULLET_PULL_INITIAL_CAPACITY);
 
-            for(int i = 0; i < SystemSettingsManager.BULLET_PULL_INITIAL_CAPACITY; i++)
+            for(var i = 0; i < SystemSettingsManager.BULLET_PULL_INITIAL_CAPACITY; i++)
             {
                 var bulletData = CreateBullet();
-                bulletData.Bullet.gameObject.SetActive(false);
+                BulletOff(bulletData);
                 _bulletList.Add(bulletData);
             }
         }
 
         public void BulletOff(BulletGameData bulletData)
         {
-            bulletData.Bullet.gameObject.SetActive(true);
+            bulletData.Bullet.gameObject.SetActive(false);
         }
 
         public BulletGameData GetBullet(float force, int damage)
         {
             BulletGameData bulletData = null;
-
-            for(int i = 0; i < _bulletList.Count; i++)
+            foreach (var t in _bulletList)
             {
-                if(!_bulletList[i].Bullet.gameObject.activeSelf)
-                {
-                    bulletData = _bulletList[i];
-                    break;
-                }
+                if (t.Bullet.gameObject.activeSelf) continue;
+                bulletData = t;
+                break;
             }
 
-            if(bulletData != null)
+            if(bulletData == null)
             {
-                bulletData.Bullet.gameObject.SetActive(true);
+                bulletData = CreateBullet();
+                _bulletList.Add(bulletData);
             }
 
             bulletData.Force = force;

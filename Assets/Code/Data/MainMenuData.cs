@@ -31,38 +31,20 @@ namespace SpaceEscape
         public Button NewGameButton => _newGameButton;
         public TextMeshProUGUI NewGameButtonText
         {
-            get
-            {
-                return _newGameButtonText;
-            }
-            set
-            {
-                _newGameButtonText = value;
-            }
+            get => _newGameButtonText;
+            set => _newGameButtonText = value;
         }
         public Button ContinueButton => _continueButton;
         public TextMeshProUGUI ContinueButtonText
         {
-            get
-            {
-                return _continueButtonText;
-            }
-            set
-            {
-                _continueButtonText = value;
-            }
+            get => _continueButtonText;
+            set => _continueButtonText = value;
         }
         public Button ExitButton => _exitButton;
         public TextMeshProUGUI ExitButtonText
         {
-            get
-            {
-                return _exitButtonText;
-            }
-            set
-            {
-                _exitButtonText = value;
-            }
+            get => _exitButtonText;
+            set => _exitButtonText = value;
         }
 
         public GameObject OSDRoot => _osdRoot;
@@ -71,25 +53,13 @@ namespace SpaceEscape
 
         public TextMeshProUGUI PlayerHealthLabelText
         {
-            get
-            {
-                return _playerHealthLabelText;
-            }
-            set
-            {
-                _playerHealthLabelText = value;
-            }
+            get => _playerHealthLabelText;
+            set => _playerHealthLabelText = value;
         }            
         public TextMeshProUGUI PlayerHealthCounterText
         {
-            get
-            {
-                return _playerHealthCounterText;
-            }
-            set
-            {
-                _playerHealthCounterText = value;
-            }
+            get => _playerHealthCounterText;
+            set => _playerHealthCounterText = value;
         }
 
     }

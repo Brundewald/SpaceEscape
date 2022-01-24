@@ -2,26 +2,14 @@
 {
     internal sealed class BulletSystem
     {
-        private BulletPullController _bulletPullController;
-        private BulletModel _bulletModel;
-        private BulletFactory _bulletFactory;
-        private BulletController _bulletController;
+        private readonly BulletPullController _bulletPullController;
+        private readonly BulletModel _bulletModel;
+        private readonly BulletFactory _bulletFactory;
+        private readonly BulletController _bulletController;
 
-        public BulletPullController BulletPullController
-        {
-            get
-            {
-                return _bulletPullController;
-            }
-        }
+        public BulletPullController BulletPullController => _bulletPullController;
 
-        public BulletModel BulletModel
-        {
-            get
-            {
-                return _bulletModel;
-            }
-        }
+        public BulletModel BulletModel => _bulletModel;
 
         public BulletSystem(Controllers controllers, Data data, PlayerSystem playerSystem, CameraSystem cameraSystem)
         {

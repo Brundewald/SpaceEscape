@@ -7,7 +7,7 @@ namespace SpaceEscape
         private readonly BulletPullController _bulletPullController;
         private readonly BulletModel _bulletModel;
         
-        private IUserKeyInputProxy _fireInputProxy;
+        private readonly IUserKeyInputProxy _fireInputProxy;
         private bool _fire;
 
 
@@ -33,10 +33,10 @@ namespace SpaceEscape
             }
         }
 
-        public void Fire()
+        private void Fire()
         {
             var bullet = _bulletPullController.GetBullet(_bulletModel.Force, _bulletModel.BulletDamage);
-
+            bullet.Bullet.gameObject.SetActive(true);
             bullet.RigidBody.mass = _bulletModel.BulletMass;
             bullet.RigidBody.AddForce(_bulletModel.Speed, ForceMode2D.Impulse);
         }

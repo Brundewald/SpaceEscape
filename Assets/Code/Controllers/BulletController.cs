@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace SpaceEscape
+﻿namespace SpaceEscape
 {
     public sealed class BulletController : IExecute
     {

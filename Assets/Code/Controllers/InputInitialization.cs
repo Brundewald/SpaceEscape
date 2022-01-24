@@ -1,12 +1,10 @@
-﻿using UnityEngine;
-
-namespace SpaceEscape
+﻿namespace SpaceEscape
 {
     internal sealed class InputInitialization : IInitialization
     {
-        private IUserInputProxy _pcInputHorizontal;
-        private IUserInputProxy _pcInputVertical;
-        private IUserKeyInputProxy _pcInputFire;
+        private readonly IUserInputProxy _pcInputHorizontal;
+        private readonly IUserInputProxy _pcInputVertical;
+        private readonly IUserKeyInputProxy _pcInputFire;
 
         public InputInitialization()
         {
